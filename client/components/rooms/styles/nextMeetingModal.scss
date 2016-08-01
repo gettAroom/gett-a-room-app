@@ -1,0 +1,62 @@
+.next-meeting-modal{
+  width: 70%;
+  height: 181px;
+  min-height: 100px !important;
+  min-width: 70% !important;
+  max-height: 300px;
+
+  h2{
+    font-size: 14px;
+
+    i{
+      vertical-align: middle;
+      margin: 0 10px 0 0;
+    }
+  }
+
+  p{
+    margin-top: 0;
+    padding: 16px;
+  }
+
+  button.phone{
+
+  }
+
+  a{
+    width: 94%;
+    background-color: #21aed8;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: currentColor;
+    utline: 0;
+    border: 0;
+    align-items: center;
+    padding: 0 6px;
+    margin: 6px 8px;
+    line-height: 36px;
+    min-height: 36px;
+    background: 0 0;
+    white-space: nowrap;
+    min-width: 88px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    i{
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+}

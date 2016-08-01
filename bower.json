@@ -1,0 +1,41 @@
+{
+  "name": "gettAroom",
+  "version": "1.1.1",
+  "private": false,
+  "author": "Oshri Kdoshim <oshri.kdoshim@citi.com>",
+  "description": "Fedexday 2016 citi",
+  "main": [
+    "./js/app.js",
+    "./js/lib.js",
+    "./styles/app.css",
+    "./styles/lib.css",
+    "./index.html"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "client",
+    "gulp",
+    "temp",
+    ".bowerrc",
+    ".gitignore",
+    ".babelrc",
+    ".jshintrc",
+    "gulpfile.babel.js",
+    "karma.conf.js",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-sanitize": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "es5-shim": "~4.1.1",
+    "angular-loading-bar": "~0.7.1",
+    "angular-mocks": "^1.4.8",
+    "lodash": "3.10.1",
+    "angular-material": "^1.1.0-rc4",
+    "moment": "^2.14.1"
+  }
+}

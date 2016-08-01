@@ -1,0 +1,70 @@
+<scan-splash status="roomsCtrl.splashStatus" massage="fetching data..."></scan-splash>
+<div class="rooms-state sliderdemoVertical" layout-fill>
+	<md-toolbar class="app-header" layout="row" layout-align="space-between center">
+		<div class="header-title" layout="row" layout-align="space-around center">
+			<md-icon md-svg-src="./images/logo-text.svg" aria-label="gett a room " class="logo-text"></md-icon>
+			<h1>: {{:: roomsCtrl.room.id }}</h1>
+		</div>
+	</md-toolbar>
+	<md-content layout="column" layout-fill class="room-state-content">
+		<div class="next-metting" flex="100">
+			<div class="circle">
+				<span class="pointer"></span>
+			</div>
+			<md-button 	class="next-metting-info md-icon-button"
+									aria-label="More"
+									ng-click="roomsCtrl.nextMeetingInfo($event)"
+									ng-if="roomsCtrl.room.nextMeeting">
+	      <i class="material-icons">info_outline</i>
+	    </md-button>
+			<div class="your-next-meeting" ng-if="!roomsCtrl.room.nextMeeting">
+				<h3>YOUR MEETING</h3>
+			</div>
+			<div class="time-content" ng-if="roomsCtrl.room.nextMeeting">
+				<bold>Next</bold>
+				<h3>From {{roomsCtrl.nextMeetingFrom}} To: {{roomsCtrl.nextMettingTo}}</h3>
+			</div>
+		</div>
+		<div class="time-line" layout="row"layout-wrap flex="100">
+			<md-slider-container flex="30">
+				<md-slider 	md-discrete
+										ng-model="roomsCtrl.selectedTime.value"
+										min="{{roomsCtrl.min}}"
+										max="{{roomsCtrl.max}}"
+										step="{{roomsCtrl.steps}}"
+										aria-label="time"
+										class="md-primary"
+										md-vertical>
+				</md-slider>
+			</md-slider-container>
+			<div class="current-book" flex="65">
+				<div class="details">
+					<i class="material-icons arrow-left">arrow_drop_down</i>
+					<div class="from-to-time">
+						<bold>FROM</bold>
+						<span>{{roomsCtrl.currentTimeLTS}}</span>
+						<bold>TO</bold>
+						<span>{{roomsCtrl.currentTo()}}</span>
+						<bold>TOTAL</bold>
+						<span>{{roomsCtrl.total}}m</span>
+						<md-button 	class="md-fab md-primary"
+												ng-disabled="roomsCtrl.checkSelectedTime()"
+												ng-click="roomsCtrl.bookMeeting()"
+												aria-label="Use Android">
+	          	<i class="material-icons">check</i>
+	        	</md-button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="current-time" flex="100">
+			<div class="circle">
+				<span class="pointer"></span>
+			</div>
+			<div class="time-content">
+				<bold>Now</bold>
+				<h3>{{:: roomsCtrl.currentTimeLTS}}</h3>
+			</div>
+		</div>
+	</md-content>
+</div>

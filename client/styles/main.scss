@@ -1,0 +1,52 @@
+@import 'vars';
+@import 'mixins';
+@import '../components/common/styles/_main';
+@import '../components/rooms/styles/_main';
+@import '../components/notavailable/styles/_main';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .logo-text{
+    height: 50px;
+    max-height: 50px;
+    min-height: 50px;
+    width: 70px;
+  }
+
+  .app-header{
+    background:transparent url('../images/logo-icon-bg.png') left top no-repeat;
+    background-size: cover;
+
+    .header-title{
+      padding-left: 7%;
+
+      h1{
+        padding: 0px 0px 0px 25px;
+        margin: 0;
+      }
+    }
+
+    button{
+      width: 60px;
+      height: 52px;
+      
+      i{
+        font-size: 34px;
+      }
+    }
+  }
+
+  md-content{
+      h1{
+        text-align: center;
+      }
+  }
+}

@@ -1,0 +1,58 @@
+.not-avilable-modal{
+  background-color: #10171D;
+  text-align: center;
+
+  bold{
+    font-size: 40px;
+    color: #8fef93;
+    margin: 0;
+    padding: 8% 0 3% 0;
+    display: block;
+  }
+
+  h1{
+    font-size: 40px;
+    color: #8fef93;
+    padding: 0% 0 4% 0;
+    margin: 0;
+  }
+
+  i{
+    font-size: 150px;
+    color: red;
+    opacity: 0.6;
+  }
+
+  h2{
+    font-size: 40px;
+    color: #8fef93;
+    padding: 4% 0 4% 0;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  button.next-metting-info{
+    height: 100px;
+    width: 80px;
+    border: none;
+
+    i{
+      font-size: 49px;
+      color: white
+    }
+  }
+
+
+
+  button{
+    border-color: #8fef93;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent !important;
+    box-shadow: none;
+    color: #8fef93 !important;
+    width: 45%;
+    margin: 10%;
+  }
+
+}

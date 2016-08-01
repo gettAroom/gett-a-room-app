@@ -1,0 +1,16 @@
+<md-dialog class="next-meeting-modal" aria-label=""  ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2><i class="material-icons">perm_contact_calendar</i>{{infoCtrl.locals.nextMeeting.orgenizer}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="infoCtrl.cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <p>{{:: infoCtrl.locals.nextMeeting.subject}}</p>
+      <!-- <md-button ng-href="tel: {{:: infoCtrl.locals.nextMeeting.phone}}" class="md-raised md-primary">Primary</md-button> -->
+      <a ng-href="tel: {{:: infoCtrl.locals.nextMeeting.phone}}"><i class="material-icons">phone</i> Call {{:: infoCtrl.locals.nextMeeting.phone}}</a>
+    </md-dialog-content>
+</md-dialog>

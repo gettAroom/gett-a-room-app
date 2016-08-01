@@ -1,0 +1,29 @@
+.notavailable-state{
+
+  md-toolbar{
+    background-color: #10171D;
+  }
+
+  h3{
+    font-size: 24px;
+    width: 68%;
+    padding: 9px 0px 0px 16%;
+    line-height: 34px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .room-state-content{
+    height: 90%;
+    max-height: 90%;
+    min-height: 90%;
+    padding: 6%;
+
+    i{
+      font-size: 200px;
+      text-align: center;
+      margin-top: 20%;
+    }
+  }
+
+}
