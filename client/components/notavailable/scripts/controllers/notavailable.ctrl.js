@@ -28,7 +28,7 @@ export default class NotAvailableCtrl {
 		if(this.$stateParams.room){
 			this.splashStatus = false;
 			this.room = this.$stateParams.room;
-			this.until = this.moment(this.$stateParams.until).format('LT');
+			this.until = this.moment(this.room.nextMeeting.to).format('LT');
 		}
 
 	}
