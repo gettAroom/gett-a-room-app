@@ -15,11 +15,17 @@ export default class RoomsCtrl {
 
 		this.roomId = '';
 		this.splashStatus = true;
-		this.room = {};
+		this.room = {
+			id:"",
+			name:"",
+			steps:15,
+			nextMeeting:{},
+			available:true
+		};
 
 		this.nextMeeting = {};
 		this.currentTime = this.moment();
-		this.currentTimeLTS = this.moment().format('LTS');
+		this.currentTimeLTS = this.moment().format('LT');
 		this.currentToTimeLTS = this.moment();
 
 		this.total = '';
@@ -32,21 +38,6 @@ export default class RoomsCtrl {
 		this.endTime = new Date();
 		this.minStart = {};
 		this.init();
-	}
-
-	beforeInit(){
-		let current = (new Date(this.currentTime));
-		let ceil = (Math.ceil(current.getMinutes()/this.steps))*this.steps;
-		let addedMinutes = ceil - current.getMinutes();
-		let rounded = (Math.floor(current.getTime()/60000) + addedMinutes)*60000;
-
-		this.minStart = new Date(rounded);
-		this.roomId = this.$stateParams.id;
-		this.splashStatus = false;
-		this.min = 0;
-		this.max = 100;
-
-
 	}
 
 	init() {
@@ -97,7 +88,8 @@ export default class RoomsCtrl {
 
 				if(this.isHappeningNow(this.room.nextMeeting)){
 					this.splashStatus = false;
-					this.roomNotAvilable();
+					// this.roomNotAvilable();
+					this.$state.transitionTo('notavailable', {'room': this.room, 'until': this.room.nextMeeting.to});
 				} else {
 					this.splashStatus = false;
 					this.reserveCountdown();
@@ -150,7 +142,7 @@ export default class RoomsCtrl {
 		    /* @ngInject */
 		    constructor($mdDialog){
 					let roomSuccessCtrl = this;
-		      Object.assign(roomSuccessCtrl, { $mdDialog});
+					roomSuccessCtrl.$mdDialog = $mdDialog;
 				}
 
 				hide() {
@@ -191,7 +183,7 @@ export default class RoomsCtrl {
 		    /* @ngInject */
 		    constructor($mdDialog){
 					let infoCtrl = this;
-		      Object.assign(infoCtrl, { $mdDialog });
+					infoCtrl.$mdDialog = $mdDialog;
 				}
 
 				hide() {
@@ -219,14 +211,18 @@ export default class RoomsCtrl {
     });
   }
 
+	haveInfo(){
+		return this.room.nextMeeting.hasOwnProperty('orgenizer');
+	}
+
 	reserveCountdown(ev){
 		this.$mdDialog.show({
       controller: class Ctrl {
 		    /* @ngInject */
 		    constructor($mdDialog, $state, moment){
 					let reserveCtrl = this;
-		      Object.assign(reserveCtrl, { $mdDialog, $state });
-
+					reserveCtrl.$mdDialog = $mdDialog;
+					reserveCtrl.$state = $state;
 				}
 		  },
 			locals:{
@@ -251,7 +247,10 @@ export default class RoomsCtrl {
 		    /* @ngInject */
 		    constructor($mdDialog, $state, moment, $mdMedia){
 					let notAvilableCtrl = this;
-		      Object.assign(notAvilableCtrl, { $mdDialog, $state, $mdMedia });
+					notAvilableCtrl.$mdDialog = $mdDialog;
+					notAvilableCtrl.$state = $state;
+					notAvilableCtrl.$mdMedia = $mdMedia;
+
 					this.moment = moment;
 					notAvilableCtrl.until = this.moment(notAvilableCtrl.locals.until).format('LT');
 				}

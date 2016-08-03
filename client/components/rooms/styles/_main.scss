@@ -9,13 +9,27 @@
     background-color: #10171D;
   }
 
+
+
   .time-content{
     text-align: center;
     padding: 3px;
     width: 65%;
     margin-left: 10%;
 
+    &.show-next{
+      width: 99%;
+      margin: 0;
+      padding: 7px;
+    }
+
+
     bold{
+      &.reserve-bold{
+        font-size: 26px;
+        padding: 11px;
+        display: block;
+      }
       color: $green-color;
       font-size: 38px;
       font-weight: 200;
@@ -94,6 +108,12 @@
       width: 117px;
       max-width: 117px;
       padding: 10px 0px 10px 0;
+
+      // Fix slider height in iphone
+      ._md-slider-wrapper{
+        position: absolute;
+        left: -24px;
+      }
     }
 
     .current-book{

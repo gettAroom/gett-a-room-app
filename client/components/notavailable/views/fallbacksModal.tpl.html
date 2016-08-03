@@ -1,0 +1,23 @@
+<md-dialog class="fallbacks-modal" aria-label=""  ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>rooms available</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="fallbackCtrl.cancel()">
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-list flex>
+        <md-list-item class="md-3-line" ng-repeat="room in fallbackCtrl.locals.fallbacks" ng-click="null">
+          <div class="md-list-item-text" layout="column">
+            <h3>
+              {{ room.id }}
+              <span>[ {{room.name}} ]</span>
+            </h3>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-dialog-content>
+</md-dialog>

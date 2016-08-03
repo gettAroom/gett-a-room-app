@@ -19,8 +19,8 @@ export const scanSplash = {
     /* @ngInject */
     constructor($log, RestSrv){
       let splashCtrl = this;
-
-      Object.assign(splashCtrl, { $log });
+      splashCtrl.$log = $log;
+      splashCtrl.RestSrv = RestSrv;
 
       splashCtrl.$onInit = () => {
 

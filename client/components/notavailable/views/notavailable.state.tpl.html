@@ -1,11 +1,25 @@
+<scan-splash status="notavCtrl.splashStatus" massage="go to room & scan or tap"></scan-splash>
 <div class="notavailable-state sliderdemoVertical" layout-fill>
 	<md-toolbar class="app-header" layout="row" layout-align="space-between center">
 		<div class="header-title" layout="row" layout-align="space-around center">
 			<md-icon md-svg-src="./images/logo-text.svg" aria-label="gett a room " class="logo-text"></md-icon>
-			<h1>: Fallbacks</h1>
+			<h1>: {{:: notavCtrl.room.id}}</h1>
 		</div>
 	</md-toolbar>
-	<md-content layout="column" layout-fill>
-		{{notavCtrl.params}}
+	<md-content layout="column" layout-fill class="room-state-content">
+		<bold>UNAVILABLE!</bold>
+		<i class="material-icons">sentiment_dissatisfied</i>
+		<md-button 	class="available-rooms-btn md-raised"
+								ng-click="notavCtrl.fallbacks($event)"
+								ng-if="notavCtrl.havFallbacks()">
+				see rooms available
+		</md-button>
+		<h2>CURRENT MEETING IS UNTIL</h2>
+		<bold>{{:: notavCtrl.until}}</bold>
+		<md-button 	class="next-metting-info md-icon-button"
+								aria-label="More"
+								ng-click="notavCtrl.nextMeetingInfo($event)">
+			<i class="material-icons">info_outline</i>
+		</md-button>
 	</md-content>
 </div>

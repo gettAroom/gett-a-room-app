@@ -3,7 +3,7 @@
 	<md-toolbar class="app-header" layout="row" layout-align="space-between center">
 		<div class="header-title" layout="row" layout-align="space-around center">
 			<md-icon md-svg-src="./images/logo-text.svg" aria-label="gett a room " class="logo-text"></md-icon>
-			<h1>: {{:: roomsCtrl.room.id }}</h1>
+			<h1>: {{ roomsCtrl.room.id }}</h1>
 		</div>
 	</md-toolbar>
 	<md-content layout="column" layout-fill class="room-state-content">
@@ -14,15 +14,18 @@
 			<md-button 	class="next-metting-info md-icon-button"
 									aria-label="More"
 									ng-click="roomsCtrl.nextMeetingInfo($event)"
-									ng-if="roomsCtrl.room.nextMeeting">
+									ng-if="roomsCtrl.haveInfo()">
 	      <i class="material-icons">info_outline</i>
 	    </md-button>
 			<div class="your-next-meeting" ng-if="!roomsCtrl.room.nextMeeting">
 				<h3>YOUR MEETING</h3>
 			</div>
-			<div class="time-content" ng-if="roomsCtrl.room.nextMeeting">
-				<bold>Next</bold>
-				<h3>From {{roomsCtrl.nextMeetingFrom}} To: {{roomsCtrl.nextMettingTo}}</h3>
+			<div class="time-content" ng-class="{'show-next' : !roomsCtrl.haveInfo()}" ng-if="roomsCtrl.room.nextMeeting">
+				<div ng-if="roomsCtrl.room.nextMeeting.orgenizer">
+					<bold>Next</bold>
+					<h3>From {{roomsCtrl.nextMeetingFrom}} to {{roomsCtrl.nextMettingTo}}</h3>
+				</div>
+				<bold class="reserve-bold" ng-if="!roomsCtrl.room.nextMeeting.orgenizer">Reserve the room up to 2 hours from now</bold>
 			</div>
 		</div>
 		<div class="time-line" layout="row"layout-wrap flex="100">
@@ -46,7 +49,7 @@
 						<bold>TO</bold>
 						<span>{{roomsCtrl.currentTo()}}</span>
 						<bold>TOTAL</bold>
-						<span>{{roomsCtrl.total}}m</span>
+						<span>{{roomsCtrl.total}}</span>
 						<md-button 	class="md-fab md-primary"
 												ng-disabled="roomsCtrl.checkSelectedTime()"
 												ng-click="roomsCtrl.bookMeeting()"
@@ -63,7 +66,7 @@
 			</div>
 			<div class="time-content">
 				<bold>Now</bold>
-				<h3>{{:: roomsCtrl.currentTimeLTS}}</h3>
+				<h3>{{ roomsCtrl.currentTimeLTS}}</h3>
 			</div>
 		</div>
 	</md-content>
