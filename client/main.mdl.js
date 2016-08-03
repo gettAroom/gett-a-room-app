@@ -38,11 +38,16 @@ export default angular
 		$locationProvider.html5Mode(true);
 
 	})
-	.run(($rootScope, $location, $state) => {
+	.run(($rootScope, $location, $state, $log, $window) => {
 		// $rootScope.scanSplash = true;
 		if($location.search().id){
 			$state.transitionTo('rooms', {'id': $location.search().id});
 		}
+
+		$rootScope.$on('$stateChangeSuccess', function (event) {
+       $window.ga('send', 'pageview', $location.path());
+			 $log.info('google-send-pageview', $location.path());
+    });
 
 
 		$rootScope.safeApply = function(fn) {
