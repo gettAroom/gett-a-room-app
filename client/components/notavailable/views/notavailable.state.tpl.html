@@ -1,21 +1,15 @@
 <scan-splash status="notavCtrl.splashStatus" massage="go to room & scan or tap"></scan-splash>
 <div class="notavailable-state sliderdemoVertical" layout-fill>
-	<md-toolbar class="app-header" layout="row" layout-align="space-between center">
-		<div class="header-title" layout="row" layout-align="space-around center">
-			<md-icon md-svg-src="./images/logo-text.svg" aria-label="gett a room " class="logo-text"></md-icon>
-			<h1>: {{:: notavCtrl.room.id}}</h1>
-		</div>
-	</md-toolbar>
-	<md-content layout="column" layout-fill class="room-state-content">
-		<bold>UNAVILABLE!</bold>
-		<i class="material-icons">sentiment_dissatisfied</i>
+	<md-content layout="column" layout-fill class="room-state-content alert-modal">
+		<h1>Sorry!</h1>
+		<md-icon md-svg-src="./images/sad.svg" class="s24" aria-label="Funny"></md-icon>
 		<!-- <md-button 	class="available-rooms-btn md-raised"
 								ng-click="notavCtrl.fallbacks($event)"
 								ng-if="notavCtrl.havFallbacks()">
 				see rooms available
 		</md-button> -->
-		<h2>CURRENT MEETING IS UNTIL</h2>
-		<bold>{{:: notavCtrl.until}}</bold>
+		<p>The current meeting in this room ends at</p>
+		<bold class="time">{{:: notavCtrl.until}}</bold>
 		<md-button 	class="next-metting-info md-icon-button"
 								aria-label="More"
 								ng-click="notavCtrl.nextMeetingInfo($event)">

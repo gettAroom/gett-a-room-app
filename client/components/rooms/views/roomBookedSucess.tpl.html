@@ -1,8 +1,8 @@
 <md-dialog class="booked-success-modal" aria-label=""  ng-cloak>
-    <md-dialog-content>
-      <h1>SUCCES</h1>
-      <i class="material-icons">sentiment_satisfied</i>
-      <p>booked <bold>{{::roomSuccessCtrl.locals.room.id}}</bold> from now until</p>
-      <bold>{{roomSuccessCtrl.locals.to}}</bold>
+    <md-dialog-content class="alert-modal">
+      <h1>Yes!</h1>
+      <md-icon md-svg-src="./images/funny.svg" class="s24" aria-label="Funny"></md-icon>
+      <p>You've just booked {{::roomSuccessCtrl.locals.room.id}} until</p>
+      <bold class="time">{{roomSuccessCtrl.locals.to}}</bold>
     </md-dialog-content>
 </md-dialog>

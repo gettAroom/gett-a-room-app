@@ -4,6 +4,7 @@
 @import '../components/rooms/styles/_main';
 @import '../components/notavailable/styles/_main';
 
+
 body {
   font-family: 'Roboto', sans-serif;
   -webkit-tap-highlight-color: transparent;
@@ -37,7 +38,7 @@ body {
     button{
       width: 60px;
       height: 52px;
-      
+
       i{
         font-size: 34px;
       }
@@ -48,5 +49,47 @@ body {
       h1{
         text-align: center;
       }
+  }
+
+
+  .alert-modal{
+    padding: 6%;
+
+    h1{
+      font-size: 67px;
+      color: #8fef93;
+      padding: 0 0 4% 0;
+      margin: 0;
+    }
+
+    md-icon{
+      width: 200px;
+      height: 200px;
+      background-color: #ffffff;
+    }
+
+
+    p{
+      font-size: 19px;
+      color: #ffffff;
+      width: 200px;
+      margin: auto;
+      margin-top: 12px;
+      margin-bottom: 12px;
+
+      bold{
+        color: #8fef93;
+        margin: 0;
+        font-size: 30px;
+        padding: 9px;
+      }
+    }
+
+    bold.time{
+      font-size: 43px;
+      color: #8fef93;
+      width: 200px;
+      margin: auto;
+    }
   }
 }
